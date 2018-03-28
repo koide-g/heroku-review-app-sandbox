@@ -2,6 +2,7 @@
   "name": "test-review-app",
   "description": "heroku review app test",
   "scripts": {
+    "postdeploy": "bin/setup"
   },
   "env": {
     "LANG": {
