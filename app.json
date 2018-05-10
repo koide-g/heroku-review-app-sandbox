@@ -2,7 +2,7 @@
   "name": "test-review-app",
   "description": "heroku review app test",
   "scripts": {
-    "postdeploy": "bin/setup"
+    "postdeploy": "db:migrate"
   },
   "env": {
     "LANG": {
