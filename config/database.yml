@@ -57,7 +57,9 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
+  <% if ENV['CIRCLECI'] %>
   user: root
+  <% end %>
   database: test-review-app_test
 
 # As with config/secrets.yml, you never want to store sensitive information,
