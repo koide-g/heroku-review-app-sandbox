@@ -6,10 +6,11 @@ class ApplicationController < ActionController::Base
 
   def multiple_authenticate
     # ENV['BASIC_AUTH_PAIRS']
-    # => user1:password1,user2:password2,user3:password3
-    return true if ENV['BASIC_AUTH_PAIRS'].nil?
-    authenticate_or_request_with_http_basic do |username, password|
-      
+    # => user1:password1,user2:password2,user3:password3....
+
+    return true unless ENV['BASIC_AUTH_PAIRS'].present?
+
+    authenticate_or_request_with_http_basic do |username, password| 
       ENV['BASIC_AUTH_PAIRS'].split(',')
         .map { |x| x.split(':') }
         .map { |user, passwd|
